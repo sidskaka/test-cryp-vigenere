@@ -1,0 +1,47 @@
+.container {
+   height: auto;
+   margin-top: 5%;
+   border: solid;
+}
+
+.col-title {
+   width: 25% !important;
+}
+
+.form-floating {
+   width: 75% !important;
+}
+
+.row.first {
+   margin-top: 5%;
+}
+
+.key-area {
+   width: 50% !important;
+}
+
+.crypt-area {
+   width: 25% !important;
+}
+
+.decrypt-area {
+   width: 25% !important;
+}
+
+.row.second {
+   width: 75% !important
+}
+
+.erreur-affiche {
+   margin-left: 26%;
+   color: #FF0000;
+}
+
+.erreur-affiche-key {
+   margin-left: 1%;
+   color: #FF0000;
+}
+
+.effacer {
+   margin-bottom: 1%;
+}
