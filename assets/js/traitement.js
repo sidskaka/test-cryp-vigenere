@@ -3,18 +3,21 @@ $(document).ready(function () {
       let valtext = $.trim($("#textdecrytp").val());
       let valkey = $.trim($("#textkey").val());
 
-
+      // Check if valtext not empty
       if (!valtext) {
          return $('#decryptRow').html("<span class='erreur-affiche'>Veuillez renseigner le text à crypter!</span>");
       } else {
          $('#decryptRow').html("");
       }
+
+      // Check if valkey not empty
       if (!valkey) {
          return $('#keyErrorRow').html("<span class='erreur-affiche-key'>Veuillez renseigner la clé!</span>");
       } else {
          $('#keyErrorRow').html("");
       }
 
+      // Ajax call
       $.ajax({
          type: "POST",
          url: "ajax/trtmServ.php",
@@ -31,17 +34,21 @@ $(document).ready(function () {
       let valtext = $.trim($("#textcrytp").val());
       let valkey = $.trim($("#textkey").val());
 
+      // Check if valtext not empty
       if (!valtext) {
          return $('#cryptRow').html("<span class='erreur-affiche'>Veuillez renseigner le text à décrypter!</span>");
       } else {
          $('#cryptRow').html("");
       }
+
+      // Check if valkey not empty
       if (!valkey) {
          return $('#keyErrorRow').html("<span class='erreur-affiche-key'>Veuillez renseigner la clé!</span>");
       } else {
          $('#keyErrorRow').html("");
       }
 
+      // Ajax call
       $.ajax({
          type: "POST",
          url: "ajax/trtmServ.php",
@@ -55,6 +62,7 @@ $(document).ready(function () {
       });
    });
 });
+// Reset button
 $("button[name='cleanerform']").click(function () {
    $('form').find("textarea, :text").val("").end().find(":checked").prop("checked", false);
 });

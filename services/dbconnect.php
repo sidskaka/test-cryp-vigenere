@@ -7,7 +7,7 @@ class MysqlConnect
    public static $DB_NAME = "cryptdb";
 
    /**
-    * This function return boolean data type.
+    * This function return object
     */
    public function connect(): object
    {

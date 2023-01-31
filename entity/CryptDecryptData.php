@@ -5,19 +5,17 @@ class CryptDecryptData implements Cipher
 {
    public static $TAB = ["A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6, "H" => 7, "I" => 8, "J" => 9, "K" => 10, "L" => 11, "M" => 12, "N" => 13, "O" => 14, "P" => 15, "Q" => 16, "R" => 17, "S" => 18, "T" => 19, "U" => 20, "V" => 21, "W" => 22, "X" => 23, "Y" => 24, "Z" => 25];
    /**
-    * This function return string data type.
+    * This function return string.
     *
     * @param string $publicdata
     * @param string $privatekey
     */
    public function crypt($publicdata, $privatekey): string
    {
-
-      //global $TAB;
-      // Compléter le tableau de clé
+      // Create the keys array
       $key = strlen($publicdata) > strlen($privatekey) ? str_pad($privatekey, strlen($publicdata), $privatekey) : $privatekey;
 
-      // Transformer les données en tableau
+      // Transform data into table
       $key = str_split($key);
       $public = str_split($publicdata);
       $secret = array();
@@ -36,22 +34,22 @@ class CryptDecryptData implements Cipher
          }
       }
 
-      $SECRETKEY = array();
+      $SECRETDATA = array();
       foreach ($secret as $k => $v) {
          foreach (CryptDecryptData::$TAB as $kk => $vv) {
             if ($vv == $v) {
-               array_push($SECRETKEY, $kk);
+               array_push($SECRETDATA, $kk);
             }
          }
       }
-      //var_dump($secret);
 
-      return implode("", $SECRETKEY);
+      return implode("", $SECRETDATA);
    }
    /**
     * This function must return string.
     *
-    * @param null
+    * @param string $publicdata
+    * @param string $privatekey
     */
    public function decrypt($publicdata, $privatekey): string
    {
@@ -77,15 +75,15 @@ class CryptDecryptData implements Cipher
          }
       }
 
-      $SECRETKEY = array();
+      $SECRETDATA = array();
       foreach ($secret as $k => $v) {
          foreach (CryptDecryptData::$TAB as $kk => $vv) {
             if ($vv == $v) {
-               array_push($SECRETKEY, $kk);
+               array_push($SECRETDATA, $kk);
             }
          }
       }
 
-      return implode("", $SECRETKEY);
+      return implode("", $SECRETDATA);
    }
 }
