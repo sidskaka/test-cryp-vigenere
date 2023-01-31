@@ -18,10 +18,12 @@ $(document).ready(function () {
       $.ajax({
          type: "POST",
          url: "ajax/trtmServ.php",
-         data: { "val": valtext, "key": valkey, "action": "E" },
+         data: { "val": valtext.toUpperCase(), "key": valkey.toUpperCase(), "action": "C", "status": "OK" },
          success: function (response) {
             let ret = response.split("|");
-            $("#textcrytp").val(ret[1]);
+            let retour = ret[0].split("=");
+            $('#cryptRow').html("");
+            $("#textcrytp").val(retour[1].toUpperCase());
          }
       });
    });
@@ -43,11 +45,12 @@ $(document).ready(function () {
       $.ajax({
          type: "POST",
          url: "ajax/trtmServ.php",
-         data: { "val": valtext, "key": valkey, "action": "D" },
+         data: { "val": valtext.toUpperCase(), "key": valkey.toUpperCase(), "action": "D", "status": "OK" },
          success: function (response) {
             let ret = response.split("|");
+            let retour = ret[0].split("=");
             $('#decryptRow').html("");
-            $("#textdecrytp").val(ret[1]);
+            $("#textdecrytp").val(retour[1].toUpperCase());
          }
       });
    });
