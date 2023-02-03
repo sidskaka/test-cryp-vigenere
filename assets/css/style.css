@@ -42,6 +42,34 @@
    color: #FF0000;
 }
 
+.erreur-acces-db {
+   position: absolute;
+   color: #FF0000;
+   right: 0;
+   top: 0;
+   transform: translateY(-50%);
+   animation: blink 1s linear infinite;
+}
+
+div#errordb {
+   position: relative;
+   height: 20px;
+}
+
 .effacer {
    margin-bottom: 1%;
+}
+
+@keyframes blink {
+   0% {
+      opacity: 1;
+   }
+
+   50% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
 }

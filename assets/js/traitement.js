@@ -24,9 +24,19 @@ $(document).ready(function () {
          data: { "val": valtext.toUpperCase(), "key": valkey.toUpperCase(), "action": "C", "status": "OK" },
          success: function (response) {
             let ret = response.split("|");
-            let retour = ret[0].split("=");
-            $('#cryptRow').html("");
-            $("#textcrytp").val(retour[1].toUpperCase());
+            let retour = ret[1].split("=");
+            switch (ret.length) {
+               case 2:
+                  $("#textcrytp").val(retour[1].toUpperCase());
+                  $('#errordb').html("");
+                  break;
+               case 4:
+                  $("#textcrytp").val(retour[1].toUpperCase());
+                  $('#errordb').html("<span class='erreur-acces-db'>" + ret[3] + "</span>");
+                  break;
+               default:
+                  return "Erreur interne";
+            }
          }
       });
    });
@@ -55,9 +65,20 @@ $(document).ready(function () {
          data: { "val": valtext.toUpperCase(), "key": valkey.toUpperCase(), "action": "D", "status": "OK" },
          success: function (response) {
             let ret = response.split("|");
-            let retour = ret[0].split("=");
-            $('#decryptRow').html("");
-            $("#textdecrytp").val(retour[1].toUpperCase());
+            let retour = ret[1].split("=");
+
+            switch (ret.length) {
+               case 2:
+                  $("#textdecrytp").val(retour[1].toUpperCase());
+                  $('#errordb').html("");
+                  break;
+               case 4:
+                  $("#textdecrytp").val(retour[1].toUpperCase());
+                  $('#errordb').html("<span class='erreur-acces-db'>" + ret[3] + "</span>");
+                  break;
+               default:
+                  return "Erreur interne";
+            }
          }
       });
    });
