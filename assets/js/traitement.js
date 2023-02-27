@@ -51,7 +51,7 @@ $(document).ready(function () {
          $('#cryptRow').html("");
       }
 
-      // Check if valkey not empty
+      // Check if valkey not empty test
       if (!valkey) {
          return $('#keyErrorRow').html("<span class='erreur-affiche-key'>Veuillez renseigner la clé!</span>");
       } else {
